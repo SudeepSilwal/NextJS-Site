@@ -46,7 +46,7 @@ export default function Projects({
     <ul className="grid grid-cols-1 gap-8 sm:grid-cols-2">
       {projects.map((project) => (
         <li key={project.slug} className="group relative">
-          <Link href={`/projects/${project.slug}`}>
+          <Link href={`/projects/${project.slug}`} passHref>
             {project.image && (
               <div className="h-72 w-full overflow-hidden bg-muted sm:h-60">
                 <Image
@@ -61,9 +61,7 @@ export default function Projects({
             <div className="absolute inset-[1px] rounded-lg bg-background/60 opacity-100 transition-opacity duration-500 group-hover:opacity-100" />
 
             <div className="absolute inset-x-0 bottom-0 px-6 py-5 translate-y-0 opacity-100 transition-all duration-500 group-hover:translate-y-2 group-hover:opacity-0">
-              <h2 className="text-xl line-clamp-1 no-underline">
-                {project.title}
-              </h2>
+              <h2 className="text-xl line-clamp-1 no-underline">{project.title}</h2>
               <p className="text-sm text-muted-foreground line-clamp-1">
                 {project.summary}
               </p>
@@ -71,14 +69,26 @@ export default function Projects({
                 {formatDate(project.publishedAt ?? "")}
               </p>
             </div>
-
-            {/* Eye Icon and GitHub Icon Side by Side with Hover Animation */}
-            <div className="absolute inset-0 flex items-center justify-center space-x-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
-              <EyeIcon className="h-12 w-12 text-white bg-black/100 p-2 rounded-full border-[1px] border-black transition-all duration-300 ease-in-out hover:scale-105 hover:bg-white/40 hover:text-black hover:border-black"/>
-
-              <GitHubIcon className="h-12 w-12 text-white bg-black/100 p-2 rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-white/40 hover:text-black border-[1px] border-black" />
-            </div>
           </Link>
+
+          {/* Eye Icon and GitHub Icon Side by Side with Hover Animation */}
+          <div className="absolute inset-0 flex items-center justify-center space-x-6 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+          <a
+              href={`/projects/${project.slug}`}
+              rel="noopener"
+              aria-label="View Project"
+            >
+            <EyeIcon className="h-12 w-12 text-white bg-black/100 p-2 rounded-full border-[1px] border-black transition-all duration-300 ease-in-out hover:scale-105 hover:bg-white/40 hover:text-black hover:border-black" />
+            </a>
+            <a
+              href={`https://github.com/sudeepsilwal`}
+              target="_blank"
+              rel="noopener"
+              aria-label="GitHub Profile"
+            >
+              <GitHubIcon className="h-12 w-12 text-white bg-black/100 p-2 rounded-full transition-all duration-300 transform hover:scale-105 hover:bg-white/40 hover:text-black border-[1px] border-black" />
+            </a>
+          </div>
         </li>
       ))}
     </ul>

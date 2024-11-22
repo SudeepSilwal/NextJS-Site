@@ -28,8 +28,20 @@ const navigation = [
   //   )
   // },
   {
+    name: 'Mail',
+    href: 'mailto:thesudeepsilwal@gmail.com',
+    icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
+      <svg fill='currentColor' viewBox='0 0 512 512' {...props}>
+        <path
+          fill='currentColor'
+          d='M502.3 190.8L327.4 324.7c-21.4 16.8-50.4 25.3-78.4 25.3s-57-8.5-78.4-25.3L9.7 190.8C3.9 186.3 0 179.4 0 172c0-9.5 5.7-18.2 14.4-21.8l200-81.6c16.7-6.8 36.4-6.8 53.1 0l200 81.6c8.7 3.6 14.4 12.3 14.4 21.8 0 7.4-3.9 14.3-9.7 18.8zM0 208v240c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V208c0-9.5-5.7-18.2-14.4-21.8L336 104.7c-21.4-8.8-45.6-8.8-67 0L14.4 186.2C5.7 189.8 0 198.5 0 208z'
+        ></path>
+      </svg>
+    )
+  },  
+  {
     name: 'LinkedIn',
-    href: '#',
+    href: 'https://np.linkedin.com/in/sudeepsilwal',
     icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
       <svg fill='currentColor' viewBox='0 0 448 512' {...props}>
         <path
@@ -41,7 +53,7 @@ const navigation = [
   },
   {
     name: 'X',
-    href: '#',
+    href: 'https://x.com/thesudeepsilwal',
     icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
       <svg fill='currentColor' viewBox='0 0 24 24' {...props}>
         <path d='M13.6823 10.6218L20.2391 3H18.6854L12.9921 9.61788L8.44486 3H3.2002L10.0765 13.0074L3.2002 21H4.75404L10.7663 14.0113L15.5685 21H20.8131L13.6819 10.6218H13.6823ZM11.5541 13.0956L10.8574 12.0991L5.31391 4.16971H7.70053L12.1742 10.5689L12.8709 11.5655L18.6861 19.8835H16.2995L11.5541 13.096V13.0956Z' />
@@ -50,7 +62,7 @@ const navigation = [
   },
   {
     name: 'GitHub',
-    href: '#',
+    href: 'https://github.com/SudeepSilwal',
     icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
       <svg fill='currentColor' viewBox='0 0 24 24' {...props}>
         <path
@@ -63,7 +75,7 @@ const navigation = [
   },
   {
     name: 'YouTube',
-    href: '#',
+    href: 'https://www.youtube.com/@thesudeepsilwal',
     icon: (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
       <svg fill='currentColor' viewBox='0 0 24 24' {...props}>
         <path
@@ -97,7 +109,7 @@ export default function Footer() {
           </div>
           <div className='mt-8 md:order-1 md:mt-0'>
             <p className='text-center text-xs leading-5 text-muted-foreground'>
-              &copy; {new Date().getFullYear()} Sudeep. All rights
+              &copy; {new Date().getFullYear()} Sudeep Silwal. All rights
               reserved.
             </p>
           </div>

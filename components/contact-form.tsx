@@ -14,6 +14,9 @@ import { sendEmail } from '@/lib/actions'
 type Inputs = z.infer<typeof ContactFormSchema>
 
 export default function ContactForm() {
+  const rickRoll = () => {
+    window.open('https://youtu.be/dQw4w9WgXcQ', '_blank', 'noopener,noreferrer');
+  };
   const {
     register,
     handleSubmit,
@@ -139,15 +142,16 @@ export default function ContactForm() {
               type='submit'
               disabled={isSubmitting}
               className='w-full disabled:opacity-50'
+              onClick={rickRoll}
             >
               {isSubmitting ? 'Submitting...' : 'Contact Us'}
             </Button>
           </div>
           <p className='mt-4 text-xs text-muted-foreground'>
             By submitting this form, I agree to the{' '}
-            <Link href='/https://youtu.be/dQw4w9WgXcQ' className='font-bold'>
+            <a href='https://youtu.be/dQw4w9WgXcQ' className='font-bold'>
               privacy&nbsp;policy.
-            </Link>
+            </a>
           </p>
         </form>
       </div>

@@ -80,7 +80,7 @@ export default async function Project({
 
       {/* GitHub Icon with hover effect positioned at bottom-right */}
       <div className="fixed bottom-8 right-8 z-20">
-        <Link href={`https://github.com/your-username/${slug}`} target="_blank">
+        <Link href={`https://github.com/SudeepSilwal/${slug}`} target="_blank">
           <div className="group relative">
             <GitHubIcon className="h-12 w-12 text-black bg-white p-2 rounded-full transition-transform duration-300 transform group-hover:scale-110 group-hover:z-10 hover:rotate-45" />
           </div>
