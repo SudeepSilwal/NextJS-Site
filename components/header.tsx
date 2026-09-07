@@ -3,35 +3,39 @@ import { ThemeToggle } from './theme-toggle'
 
 export default function Header() {
   return (
-    <header className='fixed inset-x-0 top-0 z-50 bg-background/75 py-6 backdrop-blur-sm'>
-      <nav className='container flex max-w-3xl items-center justify-between'>
-        
+    <header className="fixed inset-x-0 top-0 z-50 bg-background/75 py-6 backdrop-blur-sm">
+      <nav className="container flex max-w-3xl items-center justify-between">
+
         <div>
-          <Link href='/' className='font-serif text-2xl font-bold'>
+          <Link href="/" className="font-serif text-2xl font-bold">
             Sudeep
           </Link>
         </div>
 
-        <ul className='flex items-center gap-6 text-sm font-light text-muted-foreground sm:gap-10'>
-          
-          <li className='transition-colors hover:text-foreground'>
+        <ul className="flex items-center gap-6 text-sm font-light text-muted-foreground sm:gap-10">
+
+          <li className="transition-colors hover:text-foreground">
             <a
-              href='https://blog.sudeepsilwal.com.np/posts'
-              target='_blank'
-              rel='noopener noreferrer'
+              href="https://blog.sudeepsilwal.com.np/posts"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Posts ↗
             </a>
           </li>
 
-          <li className='transition-colors hover:text-foreground'>
-            <Link href='/projects'>
-              Projects
-            </Link>
+          <li className="transition-colors hover:text-foreground">
+            <a
+              href="https://blog.sudeepsilwal.com.np/projects"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Projects ↗
+            </a>
           </li>
 
-          <li className='transition-colors hover:text-foreground'>
-            <Link href='/contact'>
+          <li className="transition-colors hover:text-foreground">
+            <Link href="/contact">
               Contact
             </Link>
           </li>
@@ -41,6 +45,7 @@ export default function Header() {
         <div>
           <ThemeToggle />
         </div>
+
       </nav>
     </header>
   )
