@@ -20,6 +20,9 @@ const playfair = Playfair_Display({
 // inherited from here so it's never missing by accident.
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: `${SITE_NAME} — Personal Portfolio`,
     template: `%s | ${SITE_NAME}`,
