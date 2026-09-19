@@ -9,7 +9,10 @@ export default function Header() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 bg-background/75 py-5 backdrop-blur-sm">
-      <nav className="container mx-auto max-w-3xl px-5">
+      <nav
+        className="container mx-auto max-w-3xl px-5"
+        aria-label="Main navigation"
+      >
 
         {/* Top Bar */}
         <div className="flex items-center justify-between">
@@ -18,6 +21,7 @@ export default function Header() {
           <Link
             href="/"
             className="font-serif text-2xl font-bold"
+            aria-label="Sudeep Silwal — Home"
           >
             Sudeep
           </Link>
@@ -50,15 +54,19 @@ export default function Header() {
             <button
               type="button"
               onClick={() => setMenuOpen(!menuOpen)}
-              aria-label="Toggle menu"
+              aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={menuOpen}
               aria-controls="mobile-nav"
               className="rounded-md p-2 text-muted-foreground transition-colors hover:bg-muted hover:text-foreground sm:hidden"
             >
               {menuOpen ? (
-                <span className="text-xl">×</span>
+                <span aria-hidden="true" className="text-xl">
+                  ×
+                </span>
               ) : (
-                <span className="text-xl">☰</span>
+                <span aria-hidden="true" className="text-xl">
+                  ☰
+                </span>
               )}
             </button>
 
@@ -70,7 +78,10 @@ export default function Header() {
 
         {/* Mobile Navigation */}
         {menuOpen && (
-          <div id="mobile-nav" className="border-t mt-4 pt-4 sm:hidden">
+          <div
+            id="mobile-nav"
+            className="mt-4 border-t pt-4 sm:hidden"
+          >
             <ul className="flex flex-col gap-4 text-sm font-light text-muted-foreground">
 
               <li className="transition-colors hover:text-foreground">
