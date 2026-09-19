@@ -1,0 +1,23 @@
+{
+  "name": "Sudeep Silwal — Personal Portfolio",
+  "short_name": "Sudeep Silwal",
+  "description": "Personal portfolio of Sudeep Silwal, developer and student building projects toward Digital Nepal.",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "theme_color": "#FF7A1A",
+  "background_color": "#0a0a0a",
+  "display": "standalone",
+  "start_url": "/"
+}

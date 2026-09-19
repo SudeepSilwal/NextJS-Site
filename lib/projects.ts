@@ -1,58 +1,55 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
+import { BLOG_URL } from '@/lib/constants'
 
-const rootDirectory = path.join(process.cwd(), 'content', 'projects')
+const API_URL = `${BLOG_URL}/api/v1/blog/projects`
 
-export type Post = {
-  metadata: ProjectMetadata
-  content: string
-}
-
-export type ProjectMetadata = {
+export type Project = {
+  id?: number
   title?: string
-  summary?: string
-  image?: string
-  author?: string
-  publishedAt?: string
+  draft?: boolean
+  imageAlt?: string
   slug: string
+  excerpt?: string
+  description?: string
+  content?: string
+  category?: string
+  tags?: string[]
+  date?: string
+  readingTime?: string
+  image?: string
+  github?: string
+  demo?: string
+  featured?: boolean
 }
 
-export async function getProjectBySlug(slug: string): Promise<Post | null> {
-  try {
-    const filePath = path.join(rootDirectory, `${slug}.mdx`)
-    const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' })
-    const { data, content } = matter(fileContent)
-    return { metadata: { ...data, slug }, content }
-  } catch (error) {
-    return null
-  }
-}
+export async function getProjects(limit?: number): Promise<Project[]> {
+  const response = await fetch(API_URL, {
+    next: { revalidate: 60 },
+  })
 
-export async function getProjects(limit?: number): Promise<ProjectMetadata[]> {
-  const files = fs.readdirSync(rootDirectory)
-
-  const posts = files
-    .map(file => getProjectMetadata(file))
-    .sort((a, b) => {
-      if (new Date(a.publishedAt ?? '') < new Date(b.publishedAt ?? '')) {
-        return 1
-      } else {
-        return -1
-      }
-    })
-
-  if (limit) {
-    return posts.slice(0, limit)
+  if (!response.ok) {
+    throw new Error('Failed to fetch projects')
   }
 
-  return posts
+  const projects: Project[] = await response.json()
+
+  // Draft projects should never render on the main site, whether or not
+  // they're also marked featured.
+  const publishedProjects = projects.filter((project) => !project.draft)
+
+  const sortedProjects = publishedProjects.sort((a, b) => {
+    return (
+      new Date(b.date ?? '').getTime() -
+      new Date(a.date ?? '').getTime()
+    )
+  })
+
+  return limit ? sortedProjects.slice(0, limit) : sortedProjects
 }
 
-export function getProjectMetadata(filepath: string): ProjectMetadata {
-  const slug = filepath.replace(/\.mdx$/, '')
-  const filePath = path.join(rootDirectory, filepath)
-  const fileContent = fs.readFileSync(filePath, { encoding: 'utf8' })
-  const { data } = matter(fileContent)
-  return { ...data, slug }
+export async function getProjectBySlug(
+  slug: string
+): Promise<Project | null> {
+  const projects = await getProjects()
+
+  return projects.find(project => project.slug === slug) ?? null
 }
