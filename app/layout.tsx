@@ -7,6 +7,7 @@ import './globals.css';
 import Providers from '@/components/providers';
 import Header from '@/components/header';
 import Footer from '@/components/footer';
+import GoogleAnalytics from '@/components/google-analytics'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 const playfair = Playfair_Display({
@@ -119,6 +120,7 @@ export default function RootLayout({
           playfair.variable
         )}
       >
+        <GoogleAnalytics />
         <JsonLd data={personJsonLd} />
         <JsonLd data={websiteJsonLd} />
         <Providers>
