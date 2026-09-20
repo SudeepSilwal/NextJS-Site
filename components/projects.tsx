@@ -14,7 +14,7 @@ export default function Projects({ projects }: { projects: Project[] }) {
         // tab like post links do.
         const isExternalDemo = Boolean(project.demo)
         const href =
-          project.demo || `${BLOG_URL}/projects/${project.slug}`
+          `${BLOG_URL}/projects/${project.slug}`|| project.demo
 
         return (
           <li
