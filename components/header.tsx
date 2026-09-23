@@ -59,11 +59,11 @@ export default function Header() {
 
             <li className="transition-colors hover:text-foreground">
               <a
-                href="https://sudeepsilwal.com.np"
+                href="https://blog.sudeepsilwal.com.np"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Portfolio ↗
+                blog ↗
               </a>
             </li>
           </ul>
