@@ -111,17 +111,6 @@ export default function Header() {
                   </Link>
                 </li>
               ))}
-
-              <li className="transition-colors hover:text-foreground">
-                <a
-                  href="https://sudeepsilwal.com.np"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setMenuOpen(false)}
-                >
-                  Portfolio ↗
-                </a>
-              </li>
             </ul>
           </div>
         )}
